@@ -9,8 +9,11 @@
   <meta name="author" content="Нестеров Александр">
 
   
-  <meta name="description" content="test
-">
+  <meta name="description" content="Установка
+Настройка для GitHub
+Настройка для Heroku
+Настройка для VPS
+Деплой Установка Сегодя в одном из подкастов услышал о системе Octopress, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/05/25/test/">Test</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/05/25/test/">Octopress - установка и настройка</a></h1>
     
     
       <p class="meta">
@@ -95,7 +98,60 @@
   </header>
 
 
-  <div class="entry-content"><p>test</p>
+  <div class="entry-content"><ul>
+<li><a href="#install">Установка</a></li>
+<li><a href="#gihub">Настройка для GitHub</a></li>
+<li><a href="#heroku">Настройка для Heroku</a></li>
+<li><a href="#vps">Настройка для VPS</a></li>
+<li><a href="#deploy">Деплой</a></li>
+</ul>
+
+
+<h2><a name="install">Установка</a></h2>
+
+<p>Сегодя в одном из подкастов услышал о системе Octopress, которая позволяет генерировать статичные сайты, лучшим применением такой системы будет ведение блогов. Система Octopress основана на движке Jekyll и написана на Ruby соответственно для запуска необходимо у становить ruby. Здесь есть несколько решений:</p>
+
+<blockquote><ol>
+<li>Установить ruby через репозиторий</li>
+<li>Установить ruby через RVM</li>
+</ol>
+</blockquote>
+
+<p>Если Вы собираетесь запускать и другие ruby-приложения(redmine например), то я рекомендовал бы установку через RVM, т.к. это позволит установить несколько версий ruby на одну машину(для некоторых приложений требуются определенные версии ruby). Если цель это работа с octopress, то гораздо удобнее и быстрее будет установить ruby через репозиторий.</p>
+
+<p><strong>Установка через RVM:</strong></p>
+
+<figure class='code'>
+<div class="highlight">
+<table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install curl
+</span><span class='line'>curl -L https://get.rvm.io | bash -s stable </span>
+<span class='line'>source "$HOME/.rvm/scripts/rvm" </span>
+<span class='line'>rvm install 1.9.3 </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Таким образом будет установлен ruby 1.9.3.</p>
+
+<p><strong>Установка через репозиторий</strong></p>
+
+<figure class='code'>
+<div class="highlight">
+<table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get update
+</span><span class='line'>sudo apt-get install ruby</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a name="gihub">Настройка для GitHub</a></h2>
+
+<h2><a name="heroku">Настройка для Heroku</a></h2>
+
+<h2><a name="vps">Настройка для VPS</a></h2>
+
+<h2><a name="deploy">Деплой</a></h2>
 </div>
   
   
@@ -116,7 +172,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/05/25/test/">Test</a>
+        <a href="/blog/2013/05/25/test/">Octopress - установка и настройка</a>
       </li>
     
   </ul>
