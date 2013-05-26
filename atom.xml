@@ -4,7 +4,7 @@
   <title><![CDATA[IT блог]]></title>
   <link href="http://alex19pov31.github.io/atom.xml" rel="self"/>
   <link href="http://alex19pov31.github.io/"/>
-  <updated>2013-05-26T02:33:39+04:00</updated>
+  <updated>2013-05-26T17:03:19+04:00</updated>
   <id>http://alex19pov31.github.io/</id>
   <author>
     <name><![CDATA[Нестеров Александр]]></name>
@@ -41,40 +41,34 @@
 
 <p><strong>Установка через RVM:</strong></p>
 
-<figure class='code'>
-<div class="highlight">
-<table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install curl
-</span><span class='line'>curl -L https://get.rvm.io | bash -s stable </span>
-<span class='line'>source "$HOME/.rvm/scripts/rvm" </span>
-<span class='line'>rvm install 1.9.3 </span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>curl -L https://get.rvm.io | bash -s stable 
+</span><span class='line'>source "$HOME/.rvm/scripts/rvm" 
+</span><span class='line'>rvm install 1.9.3 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>Таким образом будет установлен ruby 1.9.3.</p>
 
 <p><strong>Установка через репозиторий:</strong></p>
 
-<p>Для Debian/Ubuntu</p>
-
-<figure class='code'>
-<div class="highlight">
-<table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Для Debian/Ubuntu</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get update
-</span><span class='line'>sudo apt-get install ruby</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get update
+</span><span class='line'>sudo apt-get install rub
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Для RedHat/CentOS</p>
 
-<figure class='code'>
-<div class="highlight">
-<table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'><figcaption><span>Для RedHat/CentOS</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo yum update
-</span><span class='line'>sudo yum install ruby</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo yum update
+</span><span class='line'>sudo yum install ruby
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2><a name="gihub">Настройка для GitHub</a></h2>
