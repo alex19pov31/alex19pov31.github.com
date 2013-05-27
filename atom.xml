@@ -4,7 +4,7 @@
   <title><![CDATA[IT блог]]></title>
   <link href="http://alex19pov31.github.io/atom.xml" rel="self"/>
   <link href="http://alex19pov31.github.io/"/>
-  <updated>2013-05-26T19:51:55+04:00</updated>
+  <updated>2013-05-28T01:04:28+04:00</updated>
   <id>http://alex19pov31.github.io/</id>
   <author>
     <name><![CDATA[Нестеров Александр]]></name>
@@ -12,6 +12,241 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress - установка и настройка]]></title>
+    <link href="http://alex19pov31.github.io/blog/2013/05/26/octopress-ustanovka-i-nastroika/"/>
+    <updated>2013-05-26T19:37:00+04:00</updated>
+    <id>http://alex19pov31.github.io/blog/2013/05/26/octopress-ustanovka-i-nastroika</id>
+    <content type="html"><![CDATA[<p><a name="title"></a></p>
+
+<ul>
+<li><a href="#install">Установка</a></li>
+<li><a href="#gihub">Настройка для GitHub</a></li>
+<li><a href="#bitbucket">Настройка для BitBucket</a></li>
+<li><a href="#heroku">Настройка для Heroku</a></li>
+<li><a href="#vps">Настройка для VPS</a></li>
+<li><a href="#deploy">Деплой</a></li>
+</ul>
+
+
+<h2><a name="install">Установка</a></h2>
+
+<p>Сегодя в одном из подкастов услышал о системе Octopress, которая позволяет генерировать статичные сайты, лучшим применением такой системы будет ведение блогов. Система Octopress основана на движке Jekyll и написана на Ruby соответственно для запуска необходимо установить ruby. Здесь есть несколько решений:</p>
+
+<blockquote><ol>
+<li>Установить ruby через репозиторий</li>
+<li>Установить ruby через RVM</li>
+</ol>
+</blockquote>
+
+<p>Если Вы собираетесь запускать и другие ruby-приложения(redmine например), то я рекомендовал бы установку через RVM, т.к. это позволит установить несколько версий ruby на одну машину(для некоторых приложений требуются определенные версии ruby). Если цель это работа с octopress, то гораздо удобнее и быстрее будет установить ruby через репозиторий.</p>
+
+<p><strong>Установка через RVM:</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo apt-get install curl
+</span><span class='line'><span class="nv">$ </span>curl -L https://get.rvm.io | bash -s stable
+</span><span class='line'><span class="nv">$ </span><span class="nb">source</span> <span class="s2">&quot;$HOME/.rvm/scripts/rvm&quot;</span>
+</span><span class='line'><span class="nv">$ </span>rvm install 1.9.3
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Таким образом будет установлен ruby 1.9.3.</p>
+
+<p><video width='854' height='480' preload='none' controls poster='http://alex19pov31.bitbucket.org/video/rvm_install.png'><source src='http://alex19pov31.bitbucket.org/video/rvm_install.webm' type='video/webm; codecs=vp8, vorbis'></video></p>
+
+<p><strong>Установка через репозиторий:</strong></p>
+
+<figure class='code'><figcaption><span>Для Debian/Ubuntu</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo apt-get update
+</span><span class='line'><span class="nv">$ </span>sudo apt-get install rub
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Для RedHat/CentOS</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo yum update
+</span><span class='line'><span class="nv">$ </span>sudo yum install ruby
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Для выгрузки сайта также потребуется git.</p>
+
+<figure class='code'><figcaption><span>Для Debian/Ubuntu</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo apt-get install git-core
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<figure class='code'><figcaption><span>Для RedHat/CentOS</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo yum install git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Затем создаем папку для размещения проектов и и вытягиваем из гитхаба последнюю версию Octopress:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~
+</span><span class='line'><span class="nv">$ </span>mkdir myprojects
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>myprojects
+</span><span class='line'><span class="nv">$ </span>git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>octopress
+</span><span class='line'><span class="nv">$ </span>gem install bundler
+</span><span class='line'><span class="nv">$ </span>bundel install
+</span><span class='line'><span class="nv">$ </span>rake install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h5><a href="#title">К оглавлению</a></h5>
+
+<h2><a name="gihub">Настройка для GitHub</a></h2>
+
+<p>Для размещения сайта на githab необходимо прехде всего завести аккаунт (подразумевается что аккаунт уже есть). Далее необходимо создать репозиторий с названием вида имя_аккаунта.github.com.</p>
+
+<blockquote><p>GitHub позволяет создавать статические сайты и предоставляет для доступа к сайту домен вида имя_аккаунта.github.com соответственно содержимое сайта должно располагаться в репозитории с тем же именем.</p></blockquote>
+
+<p>Теперь сгенерируем страницы для выгрузки на github и заодно настроим соединение с удаленным репозиторием. Для этого служит команда setup_github_pages.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~/myprojects/octopress
+</span><span class='line'><span class="nv">$ </span>rake setup_github_pages
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>При выполнении команды setup_github_pages Octopress запросит URL репозитория, указываем url из настроек GitHub`а (не забываем для доступа по ssh добавить публичный ключ в профиль).</p>
+
+<blockquote><p>Весь список команд доступных в Octopress можно посмотреть в файле Rakefale корневой директории проекта. Команды в фале обозначены task :имя команды, также строчкой выше есть описание команды desc &ldquo;описание команды&rdquo;.</p></blockquote>
+
+<p>Для настройки блога предназначен файл _config.yml</p>
+
+<figure class='code'><figcaption><span>Содержимое файла _config.yml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># ----------------------- #</span>
+</span><span class='line'><span class="c1">#      Main Configs       #</span>
+</span><span class='line'><span class="c1"># ----------------------- #</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">url</span><span class="p">:</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="err">имя</span><span class="n">_</span><span class="err">аккаунта</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
+</span><span class='line'><span class="ss">title</span><span class="p">:</span> <span class="err">Заголовок</span>
+</span><span class='line'><span class="ss">subtitle</span><span class="p">:</span> <span class="err">Сообщение</span> <span class="err">под</span> <span class="err">заголовком</span><span class="o">.</span>
+</span><span class='line'><span class="ss">author</span><span class="p">:</span> <span class="err">Имя</span> <span class="err">автора</span>
+</span><span class='line'><span class="n">simple_search</span><span class="p">:</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">search</span>
+</span><span class='line'><span class="ss">description</span><span class="p">:</span> <span class="err">Описание</span> <span class="err">для</span> <span class="err">блога</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h5><a href="#title">К оглавлению</a></h5>
+
+<h2><a name="bitbucket">Настройка для BitBucket</a></h2>
+
+<p>Настройка Octopress для работы с BitBucket мало чем отличается от настройки для работы с GitHub. Для размещения файлов сайта необходимо создать репозиторий вида имя_аккаунта.bitbucket.org.</p>
+
+<blockquote><p>BitBucket позволяет создавать статические сайты и предоставляет для доступа к сайту домен вида имя_аккаунта.bitbucket.org соответственно содержимое сайта должно располагаться в репозитории с тем же именем.</p></blockquote>
+
+<p>Для генерации файло используется таже команда что под GitHub setup_github_pages.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~/myprojects/octopress
+</span><span class='line'><span class="nv">$ </span>rake setup_github_pages
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Octopress запросит URL репозитория указываем URL:
+<strong>git@bitbucket.org:имя аккаунта/имя аккаунта.bitbucket.org.git</strong></p>
+
+<p>Далее нам необходимо откорректировать файлы _config.yml, config.rb и Rakefile</p>
+
+<p><strong>В файле _config.yml меняем:</strong></p>
+
+<pre><code>url: http://имя_аккаунта.github.io/имя_аккаунта 
+на 
+url: http://имя_аккаунта.github.io
+
+root: /имя_аккаунта
+на
+root: /
+
+subscribe_rss: /имя_аккаунта/atom.xml
+на
+subscribe_rss: /atom.xml
+
+destination: public/имя_аккаунта
+на
+destination: public/
+</code></pre>
+
+<p><strong>В файле config.rb меняем:</strong></p>
+
+<pre><code>http_path = "/имя_аккаунта/"
+http_images_path = "/имя_аккаунта/images"
+http_fonts_path = "/имя_аккаунта/fonts"
+css_dir = "public/имя_аккаунта/stylesheets"
+на
+http_path = "/"
+http_images_path = "/images"
+http_fonts_path = "/fonts"
+css_dir = "public/stylesheets"
+</code></pre>
+
+<p><strong>В файле Rakefile меняем:</strong></p>
+
+<pre><code>public_dir      = "public/имя_аккаунта"
+на
+public_dir      = "public"
+</code></pre>
+
+<p>Теперь нужно удалить оставшуюся паку public/имя аккаунта и сгенерировать новые страницы</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~/myprojects/octopress
+</span><span class='line'><span class="nv">$ </span>rmdir -R public/имя_аккаунта
+</span><span class='line'><span class="nv">$ </span>rake generate
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Теперь Octopress настроен для работы с BitBucket.</p>
+
+<h5><a href="#title">К оглавлению</a></h5>
+
+<h2><a name="heroku">Настройка для Heroku</a></h2>
+
+<h5><a href="#title">К оглавлению</a></h5>
+
+<h2><a name="vps">Настройка для VPS</a></h2>
+
+<h5><a href="#title">К оглавлению</a></h5>
+
+<h2><a name="deploy">Деплой</a></h2>
+
+<h5><a href="#title">К оглавлению</a></h5>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress - установка и настройка]]></title>
